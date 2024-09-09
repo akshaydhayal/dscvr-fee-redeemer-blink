@@ -50,7 +50,7 @@ export async function POST(request:Request){
   const response:ActionPostResponse={
     transaction:serialisedTx,
     // transaction:"",
-    message:"Hi from "+sender.toBase58()
+    message:"Wooh!!, Closed all Empty Token Accounts"
   }
   return Response.json(response,{headers:ACTIONS_CORS_HEADERS});
 }

@@ -6,7 +6,7 @@ export async function closeEmptyAccounts(connection:Connection,userPub:PublicKey
     const allAccounts=await connection.getTokenAccountsByOwner(userPub,{
         programId:programId
     });
-    const emptyAccounts=[];
+    const emptyAccounts:PublicKey[]=[];
     const empty=allAccounts.value.forEach((acc)=>{
         const amount=acc.account.data.readBigUInt64LE(64)
         if(!amount){

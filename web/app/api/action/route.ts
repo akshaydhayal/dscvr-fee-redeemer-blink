@@ -6,19 +6,24 @@ import { createCloseAccountInstruction, TOKEN_2022_PROGRAM_ID, TOKEN_PROGRAM_ID 
 export async function GET(request: Request) {
   const response: ActionGetResponse = {
     title: 'Fee Redeemer',
-    icon: 'https://s3.coinmarketcap.com/static-gravity/image/5cc0b99a8dd84fbfa4e150d84b5531f2.png',
-    description: 'Recover Accounts rent fees by closing the Empty token accounts',
-    label:"BLINK",
-    links:{
-      actions:[{
-        label: 'Close Token Program Accounts',
-        href:request.url+"?pg=token"
-      },
-    {
-      label:"Close Token22 Program Accounts",
-      href:request.url+"?pg=token22"
-    }]
-    }
+    // icon: 'https://s3.coinmarketcap.com/static-gravity/image/5cc0b99a8dd84fbfa4e150d84b5531f2.png',
+    // icon: 'http://localhost:3001/fee3.png',
+    icon: new URL(request.url).origin+'/fee5.png',
+    description:
+      'Recover Accounts rent fees by closing the Empty token accounts',
+    label: 'BLINK',
+    links: {
+      actions: [
+        {
+          label: 'Close Token Program Accounts',
+          href: request.url + '?pg=token',
+        },
+        {
+          label: 'Close Token22 Program Accounts',
+          href: request.url + '?pg=token22',
+        },
+      ],
+    },
   };
   return Response.json(response,{headers:ACTIONS_CORS_HEADERS});
 }

@@ -1,11 +1,30 @@
-// /** @type {import('next').NextConfig} */
-// const nextConfig = {};
+//@ts-check
 
-// export default nextConfig;
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const { composePlugins, withNx } = require('@nx/next');
 
-/** @type {import('next').NextConfig} */
+/**
+ * @type {import('@nx/next/plugins/with-nx').WithNxOptions & import('next').NextConfig}
+ **/
 const nextConfig = {
-  pageExtensions: ['js', 'jsx', 'ts', 'tsx', 'mdx'], // Add or remove extensions as needed
+  // Adding custom webpack config
+  webpack: (config) => {
+    config.externals = [
+      ...(config.externals || []),
+      'bigint',
+      'node-gyp-build',
+    ];
+    return config;
+  },
+  nx: {
+    // Set this to true if you would like to use SVGR
+    // See: https://github.com/gregberge/svgr
+    svgr: false,
+  },
+  // Adding page extensions
+  pageExtensions: ['js', 'jsx', 'ts', 'tsx', 'mdx'],
+
+  // Adding headers for Content-Security-Policy
   async headers() {
     return [
       {
@@ -22,7 +41,14 @@ const nextConfig = {
   },
 };
 
-export default nextConfig;
+const plugins = [
+  // Add more Next.js plugins to this list if needed.
+  withNx,
+];
+
+module.exports = composePlugins(...plugins)(nextConfig);
+
+
 
 
 // //@ts-check

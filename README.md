@@ -1,50 +1,14 @@
-# fee-redeemer-blink
+# Fee Redeemer Blink for Closing Accounts
 
-This project is generated with the [create-solana-dapp](https://github.com/solana-developers/create-solana-dapp) generator.
+Many Solana users accumulate empty or **unused token accounts**, which continue to incur rent fees, unnecessarily locking up SOL. The challenge is to create a solution that helps users identify and close these empty token accounts efficiently, allowing them to recover the rent fees and optimize their wallet balances.
 
-## Getting Started
+**Optimize your Solana wallet by clearing out inactive accounts and getting your fees back instantly.**
 
-### Prerequisites
+**HOW IT WORKS:**
+Just simply connect your wallet , choose which program's token account you want to close and that's it.
 
-- Node v18.18.0 or higher
+**DEMO**
 
-### Installation
+![bb.png](https://cdn.dorahacks.io/static/files/191e81e775c8401df2d8f124eb192489.png)
 
-#### Clone the repo
-
-```shell
-git clone <repo-url>
-cd <repo-name>
-```
-
-#### Install Dependencies
-
-```shell
-npm install
-```
-
-#### Start the web app
-
-```
-npm run dev
-```
-
-## Apps
-
-### web
-
-This is a React app.
-
-#### Commands
-
-Start the web app
-
-```shell
-npm run dev
-```
-
-Build the web app
-
-```shell
-npm run build
-```
+![aa.png](https://cdn.dorahacks.io/static/files/191e81d36eb7c0fb615c25d4bff8f16d.png)
